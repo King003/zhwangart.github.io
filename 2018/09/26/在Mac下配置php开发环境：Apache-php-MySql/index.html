@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+
+    
+    <title>
+        在 Mac 下配置 php 开发环境：Apache+php+MySql |
+        
+        数学家</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="系统 OS X 10.8.5，Apache 是 Mac 自带的，主要是 PHP 的配置和 MySql 的配置，网上教程也挺多，本人也有参考，但是感觉有些步骤执行起来不是很顺畅，根据自己配置的过程整理。">
+<meta name="keywords" content="php,apache">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 Mac 下配置 php 开发环境：Apache+php+MySql">
+<meta property="og:url" content="http://zhwangart.com/2018/09/26/在Mac下配置php开发环境：Apache-php-MySql/index.html">
+<meta property="og:site_name" content="数学家">
+<meta property="og:description" content="系统 OS X 10.8.5，Apache 是 Mac 自带的，主要是 PHP 的配置和 MySql 的配置，网上教程也挺多，本人也有参考，但是感觉有些步骤执行起来不是很顺畅，根据自己配置的过程整理。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://zhwangart.com/2018/09/26/在Mac下配置php开发环境：Apache-php-MySql/_images/php_v7.1.19.jpg">
+<meta property="og:image" content="http://zhwangart.com/2018/09/26/在Mac下配置php开发环境：Apache-php-MySql/_images/php_v7.1.19.jpg">
+<meta property="og:updated_time" content="2018-10-08T03:31:42.013Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在 Mac 下配置 php 开发环境：Apache+php+MySql">
+<meta name="twitter:description" content="系统 OS X 10.8.5，Apache 是 Mac 自带的，主要是 PHP 的配置和 MySql 的配置，网上教程也挺多，本人也有参考，但是感觉有些步骤执行起来不是很顺畅，根据自己配置的过程整理。">
+<meta name="twitter:image" content="http://zhwangart.com/2018/09/26/在Mac下配置php开发环境：Apache-php-MySql/_images/php_v7.1.19.jpg">
+    
+        <link rel="alternate" href="/atom.xml" title="数学家" type="application/atom+xml">
+    
+    
+        <link rel="icon" href="/favicon.png">
+    
+    
+
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <main class="content">
+        <section class="outer">
+    <article id="post-在Mac下配置php开发环境：Apache-php-MySql" class="article article-type-post" itemscope itemprop="blogPost">
+
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            在 Mac 下配置 php 开发环境：Apache+php+MySql
+        </h1>
+    
+
+            </header>
+        
+        <div class="article-meta">
+            <a href="/2018/09/26/在Mac下配置php开发环境：Apache-php-MySql/" class="article-date">
+    <time datetime="2018-09-26T06:06:00.000Z" itemprop="datePublished">2018-09-26</time>
+</a>
+            
+            <!---->
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            
+            
+                <p>系统 OS X 10.8.5，Apache 是 Mac 自带的，主要是 PHP 的配置和 MySql 的配置，网上教程也挺多，本人也有参考，但是感觉有些步骤执行起来不是很顺畅，根据自己配置的过程整理。<br><a id="more"></a></p>
+<h3 id="一、启动Apache"><a href="#一、启动Apache" class="headerlink" title="一、启动Apache"></a>一、启动Apache</h3><p>有两种方法</p>
+<blockquote>
+<ol>
+<li>打开网络共享：“系统偏好设置”–“共享”，在“互联网共享”那一项前面打“√”。</li>
+<li>打开终端，输入</li>
+</ol>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apachectl start</span><br></pre></td></tr></table></figure>
+<p>这时需要输入密码，输入电脑密码即可，然后输入</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apachectl －v</span><br></pre></td></tr></table></figure>
+<p>可以查看到 Apache 的版本信息</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Server version: Apache/2.4.34 (Unix)</span><br><span class="line">Server built:   Aug 17 2018 16:29:43</span><br></pre></td></tr></table></figure>
+<p>此时在浏览器中输入 <a href="http://localhost，会出现" target="_blank" rel="noopener">http://localhost，会出现</a> It works！ 的页面。</p>
+<h2 id="二、运行PHP"><a href="#二、运行PHP" class="headerlink" title="二、运行PHP"></a>二、运行PHP</h2><p>1、找到 Apache 的配置文件，在目录 /etc/apache2/ 下，打开 Finder，选择“前往”–“前往文件夹”，输入 /etc/apache2/，找到其中的 httpd.conf 文件，选择用文稿打开进行编辑，点按 Command+F，搜索 #LoadModule php 能看到：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#LoadModule php7_module libexec/apache2/libphp7.so</span><br></pre></td></tr></table></figure>
+<p>把前边的注释 # 号去掉，然后保存，如果出现文本锁定，无法解锁的情况，解决办法有两种：</p>
+<blockquote>
+<ol>
+<li>选中该文件，右击后选择“显示简介”，点击右下角的小锁的图标，输入电脑密码解锁，然后选择左边的 + 号键，选择自己当前电脑登陆的用户，将权限设置为读与写，如果还是不行，将其上一级文件夹权限同样再修改一次。</li>
+<li>将该文件复制到桌面，进行修改，修改后再复制到原来的文件夹替换之前的文件即可。</li>
+</ol>
+</blockquote>
+<p>2、重启 Apache，在终端输入</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apachectl restart</span><br></pre></td></tr></table></figure>
+<p>PHP就可以用了。</p>
+<p>3、在终端输入</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /Library/WebServer/Documents/index.html.en /Library/WebServer/Documents/info.php</span><br></pre></td></tr></table></figure>
+<p>即在 Apache 的根目录下复制 index.html.en文件并重命名为 info.php。</p>
+<p>4、打开 info.php，在 It works 后面加上 ，然后再次重启 Apache，在浏览器中输入 <a href="http://localhost/info.php，会出现一个显示" target="_blank" rel="noopener">http://localhost/info.php，会出现一个显示</a> PHP 信息的页面，如图所示。</p>
+<p><img src="_images/php_v7.1.19.jpg" alt="php"></p>
+<h2 id="三、配置-MySql"><a href="#三、配置-MySql" class="headerlink" title="三、配置 MySql"></a>三、配置 MySql</h2><p>1、在 <a href="http://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">http://dev.mysql.com/downloads/mysql/</a> 网站上，选择 Mac OS X 平台，然后选择图中的下载，我开始下载错了，安装出错，后来下载图中的版本安装成功。</p>
+<p><img src="_images/php_v7.1.19.jpg" alt="MySQL"></p>
+<p>双击第一个安装，然后双击第三个安装，然后双击第二个，第二个是配置文件，安装之后，可以在系统偏好设置中选择启动或者关闭 MySql。</p>
+<p>2、修改密码</p>
+<p>在终端输入，这里修改密码为 12345，也可为其他，自定义即可</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/mysql/bin/mysqladmin -u root password 12345</span><br></pre></td></tr></table></figure>
+<h2 id="四、使用-phpMyAdmin"><a href="#四、使用-phpMyAdmin" class="headerlink" title="四、使用 phpMyAdmin"></a>四、使用 phpMyAdmin</h2><p>phpMyAdmin 是用 PHP 开发的管理 MySql 的程序，非常实用。</p>
+<p>1、下载 phpMyAdmin，在网址 <a href="http://www.phpmyadmin.net/home_page/downloads.php" target="_blank" rel="noopener">http://www.phpmyadmin.net/home_page/downloads.php</a> 中选择合适的版本下载，我选择的是 phpMyAdmin-4.0.8-All-Languages.tar.bz2</p>
+<p>2、将下载好的文件解压后，放进 /Library/WebServer/Documents/ 文件夹中，并命名为 phpMyadmin。</p>
+<p>3、复制 /Library/WebServer/Documents/phpmyadmin 中的 config.sample.inc.php，并命名为 config.inc.php ，并放在当前文件夹下。</p>
+<p>4、编辑 config.inc.php ，修改其中的<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$cfg['Servers']]$i]['host'] = 'localhost';</span><br></pre></td></tr></table></figure></p>
+<p>为<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$cfg['Servers']]$i]['host'] = '127.0.0.1';</span><br></pre></td></tr></table></figure></p>
+<p>即可，如果想要无密码登陆，则将其中的下面语句中的 false 改成 true。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$cfg['Servers'][$i]['AllowNoPassword'] = false</span><br></pre></td></tr></table></figure></p>
+<p>5、在浏览器中输入 <a href="http://localhost/phpmyadmin，输入用户名" target="_blank" rel="noopener">http://localhost/phpmyadmin，输入用户名</a> root, 和刚刚自己所更改的密码，如果未更改密码，则按照上一步骤中的无密码操作，然后就可以直接登陆了。</p>
+<p>PS：到此配置完成，进行 PHP 开发还需下载一个 PHP 开发工具，Mac 下的 PHP 开发工具也挺多，大家自行谷歌百度，需要提醒的是，安装好开发工具之后，在建议 PHP 工程时，记得要将工程放在和 phpMyadmin 同一个目录文件下，可新建一个文件夹专门用来存放 PHP 工程，否则，是无法运行的。</p>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="http://zhwangart.com/2018/09/26/在Mac下配置php开发环境：Apache-php-MySql/" data-id="cjoe3bww4000cy9r99pe5sawz"
+               class="article-share-link">分享</a>
+            
+            
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache/">apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+
+        </footer>
+    </div>
+    
+        
+    <nav class="article-nav">
+        
+            <a href="/2018/09/26/在-Mac-环境编辑-Apache-根目录/" class="article-nav-link">
+                <strong class="article-nav-caption">上一篇</strong>
+                <div class="article-nav-title">
+                    
+                        在 Mac 环境编辑 Apache 根目录
+                    
+                </div>
+            </a>
+        
+        
+            <a href="/2018/09/14/Hexo/" class="article-nav-link">
+                <strong class="article-nav-caption">下一篇</strong>
+                <div class="article-nav-title">Hexo</div>
+            </a>
+        
+    </nav>
+
+
+    
+</article>
+
+
+</section>
+        <footer class="footer">
+    
+    <div class="outer">
+        <ul class="list-inline">
+            <li>&copy; 2018 数学家</li>
+            <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+            <li>Theme  <a href="/">zhwangart</a></li>
+        </ul>
+    </div>
+</footer>
+    </main>
+    <aside class="sidebar">
+        
+<button class="navbar-toggle"></button>
+
+<nav class="navbar">
+    <div class="logo">
+        <a href="/"><img src="/images/chick.svg" alt="数学家"></a>
+    </div>
+    <ul class="nav nav-main">
+        
+        <li class="nav-item">
+            <a class="nav-item-link" href="/">首页</a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-item-link" href="/archives">归档</a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-item-link" href="/gallery">相册</a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-item-link" href="/about">关于</a>
+        </li>
+        
+            <li class="nav-item">
+                <a class="nav-item-link nav-item-search" title="Search">
+                    <i class="fe fe-search"></i>
+                    搜索
+                </a>
+            </li>
+    </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+    <ul class="nav">
+        <li class="nav-item">
+            
+                <a class="nav-item-link" href="/atom.xml" title="RSS Feed">
+                    <i class="fe fe-feed"></i>
+                </a>
+            
+        </li>
+    </ul>
+</nav>
+
+<div class="search-form-wrap">
+    <div class="local-search local-search-plugin">
+    <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+    <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+
+
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+    <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/search.js"></script>
+<script src="/js/script.js"></script>
+<script>
+    // 移动设备侦测
+    var isMobile = {
+        Android: function () {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function () {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function () {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function () {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function () {
+            return navigator.userAgent.match(/IEMobile/i);
+        },
+        any: function () {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+        }
+    };
+    // 建议在移动端不初始化，其实 /search.xml 文件还挺大的，
+    if ($('.local-search').size() && !isMobile.any()) {
+        $.getScript('/js/search.js', function() {
+            searchFunc("/search.xml", 'local-search-input', 'local-search-result');
+        });
+    }
+</script>
+
+
+
+</body>
+</html>
