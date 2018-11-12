@@ -20,70 +20,12 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hexo]]></title>
-    <url>%2F2018%2F09%2F14%2FHexo%2F</url>
-    <content type="text"><![CDATA[1Usage: hexo &lt;command&gt; 12345678910111213141516171819202122Commands: clean Remove generated files and cache. config Get or set configurations. deploy Deploy your website. generate Generate static files. help Get help on a command. init Create a new Hexo folder. list List the information of the site migrate Migrate your site from other system to Hexo. new Create a new post. publish Moves a draft post from _drafts to _posts folder. render Render files with renderer plugins. server Start the server. version Display version information.Global Options: --config Specify config file instead of using _config.yml --cwd Specify the CWD --debug Display all verbose messages in the terminal --draft Display draft posts --safe Disable all plugins and scripts --silent Hide output on console]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[img 下多余空隙解决方案]]></title>
     <url>%2F2018%2F09%2F12%2Fimg-%E4%B8%8B%E5%A4%9A%E4%BD%99%E7%A9%BA%E7%99%BD%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%2F</url>
     <content type="text"><![CDATA[在进行页面的 CSS 排版时，遇到 IE6（当然有时 Firefox 下也会偶遇）浏览器中的图片元素 img 下出现多余空隙的问题绝对是常见的。对于该问题的解决方法也是「见机行事」，根据原因的不同要用不同的解决方法，这里把解决 img 下边多余空隙 Bug 的常用方法归纳，供大家参考。 假如 Html 结构如下所示，img 的父级元素为 figure：123&lt;div class="figure"&gt; &lt;img src="..." alt="..."/&gt;&lt;/div&gt; 1、将图片转换为块级对像即设置 img 的 display 为：block，示例 CSS 代码：1.figure img &#123; display: block;&#125; 2、设置图片的垂直对齐方式即设置图片的 vertical-align 属性为：top、text-top、bottom、text-bottom，示例 CSS 代码：1.figure img &#123; vertical-align: top;&#125; 3、设置父级对象的文字大小为 0即设置 figure 的 font-size 属性为: 0， 可以解决问题，但这也引发了新的问题，在父对像中的文字都无法显示。就算文字部分被子对像括起来，重置子对像文字大小依然可以显示，但在 CSS 效验的时候会提示文字过小的错误。示例 CSS 代码：1.figure &#123; font-size: 0;&#125; 4、改变父级对象的属性如果父级对象的宽、高固定，img 自适应父级对像大小，那么可以设置：overflow:hidden; 来解决。如本例中可以向#sub中添加以下代码：12345.figure &#123; width: 100px; height: 100px; overflow: hidden;&#125; 5、设置 img 的浮动属性给 img 设置 float 属性为：left、right，示例 CSS 代码：1img &#123; float: left;&#125; 如果要实现图文混排，这种方法是很好的选择。 6、取消 img 标签和其父级对象的最后一个结束标签之间的空格这个方法要强调下，在实际开发中该方法可能会出乱子，因为在写代码的时候为了让代码更体现语义和层次清晰，难免要通过 IDE 提供代码缩进显示，这必然 会让标签和其他标签换行显示，比如说 Dreamweaver 的“套用源格式”命令。所以说这个方法可以供我们了解出现 Bug 的一种情况，具体解决方案的还得各位见招拆招了。]]></content>
       <tags>
         <tag>CSS</tag>
         <tag>Html</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2018%2F09%2F08%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-      <categories>
-        <category>Developer</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Readme]]></title>
-    <url>%2F2018%2F08%2F31%2FReadme%2F</url>
-    <content type="text"><![CDATA[Markdown是一种轻量级标记语言，它以纯文本形式(易读、易写、易更改)编写文档，并最终以HTML格式发布。Markdown也可以理解为将以MARKDOWN语法编写的语言转换成HTML内容的工具。 主要内容 Markdown是什么？谁创造了它？为什么要使用它？怎么使用？谁在用？尝试一下 正文1. Markdown是什么？Markdown是一种轻量级标记语言，它以纯文本形式(易读、易写、易更改)编写文档，并最终以HTML格式发布。Markdown也可以理解为将以MARKDOWN语法编写的语言转换成HTML内容的工具。 2. 谁创造了它？它由Aaron Swartz和John Gruber共同设计，Aaron Swartz就是那位于去年（2013年1月11日）自杀,有着开挂一般人生经历的程序员。维基百科对他的介绍是：软件工程师、作家、政治组织者、互联网活动家、维基百科人。 他有着足以让你跪拜的人生经历： 14岁参与RSS 1.0规格标准的制订。 2004年入读斯坦福，之后退学。 2005年创建Infogami，之后与Reddit合并成为其合伙人。 2010年创立求进会（Demand Progress），积极参与禁止网络盗版法案（SOPA）活动，最终该提案被撤回。 2011年7月19日，因被控从MIT和JSTOR下载480万篇学术论文并以免费形式上传于网络被捕。 2013年1月自杀身亡。 天才都有早逝的归途。 3. 为什么要使用它？ 它是易读（看起来舒服）、易写（语法简单）、易更改纯文本。处处体现着极简主义的影子。 兼容HTML，可以转换为HTML格式发布。 跨平台使用。 越来越多的网站支持Markdown。 更方便清晰地组织你的电子邮件。（Markdown-here, Airmail） 摆脱Word（我不是认真的）。 4. 怎么使用？如果不算扩展，Markdown的语法绝对简单到让你爱不释手。 Markdown语法主要分为如下几大部分：标题，段落，区块引用，代码区块，强调，列表，分割线，链接，图片，反斜杠 \，符号’`’。 4.1 标题两种形式：1）使用=和-标记一级和二级标题。 一级标题=========二级标题--------- 效果： 一级标题 二级标题 2）使用#，可表示1-6级标题。 # 一级标题## 二级标题### 三级标题#### 四级标题##### 五级标题###### 六级标题 效果： 一级标题二级标题三级标题四级标题五级标题六级标题 4.2 段落段落的前后要有空行，所谓的空行是指没有文字内容。若想在段内强制换行的方式是使用两个以上空格加上回车（引用中换行省略回车）。 4.3 区块引用在段落的每行或者只在第一行使用符号&gt;,还可使用多个嵌套引用，如： > 区块引用>&gt; 嵌套引用 效果： 区块引用 嵌套引用 4.4 代码区块代码区块的建立是在每行加上4个空格或者一个制表符（如同写代码一样）。如普通段落： void main(){ printf(“Hello, Markdown.”);} 代码区块： void main() { printf(&quot;Hello, Markdown.&quot;); } 注意:需要和普通段落之间存在空行。 4.5 强调在强调内容两侧分别加上*或者_，如： *斜体*，_斜体_**粗体**，__粗体__ 效果： 斜体，_斜体_粗体，粗体 4.6 列表使用·、+、或-标记无序列表，如： -（+*） 第一项-（+*） 第二项- （+*）第三项 注意：标记后面最少有一个_空格_或制表符。若不在引用区块中，必须和前方段落之间存在空行。 效果： 第一项 第二项 第三项 有序列表的标记方式是将上述的符号换成数字,并辅以.，如： 1 . 第一项2 . 第二项3 . 第三项 效果： 第一项 第二项 第三项 4.7 分割线分割线最常使用就是三个或以上*，还可以使用-和_。 4.8 链接链接可以由两种形式生成：行内式和参考式。行内式： [younghz的Markdown库](https:://github.com/younghz/Markdown “Markdown”)。 效果： younghz的Markdown库。 参考式： [younghz的Markdown库1][1][younghz的Markdown库2][2][1]:https:://github.com/younghz/Markdown “Markdown”[2]:https:://github.com/younghz/Markdown “Markdown” 效果： younghz的Markdown库1younghz的Markdown库2 注意：上述的[1]:https:://github.com/younghz/Markdown &quot;Markdown&quot;不出现在区块中。 4.9 图片添加图片的形式和链接相似，只需在链接的基础上前方加一个！。 4.10 反斜杠\相当于反转义作用。使符号成为普通符号。 4.11 符号’`’起到标记作用。如： `ctrl+a` 效果： ctrl+a 5. 谁在用？Markdown的使用者： GitHub 简书 Stack Overflow Apollo Moodle Reddit 等等 6. 尝试一下 Chrome下的插件诸如stackedit与markdown-here等非常方便，也不用担心平台受限。 在线的dillinger.io评价也不错 Windowns下的MarkdownPad也用过，不过免费版的体验不是很好。 Mac下的Mou是国人贡献的，口碑很好。 Linux下的ReText不错。 当然，最终境界永远都是笔下是语法，心中格式化 :)。 注意：不同的Markdown解释器或工具对相应语法（扩展语法）的解释效果不尽相同，具体可参见工具的使用说明。虽然有人想出面搞一个所谓的标准化的Markdown，[没想到还惹怒了健在的创始人John Gruber](http://blog.codinghorror.com/standard-markdown-is-now-common-markdown/)。 以上基本是所有traditonal markdown的语法。 其它：列表的使用(非traditonal markdown)： 用|表示表格纵向边界，表头和表内容用-隔开，并可用:进行对齐设置，两边都有:则表示居中，若不加:则默认左对齐。 代码库 链接 MarkDown https://github.com/younghz/Markdown MarkDownCopy https://github.com/younghz/Markdown 关于其它扩展语法可参见具体工具的使用说明。]]></content>
-      <categories>
-        <category>Developer</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-        <tag>Hexo</tag>
-        <tag>Node.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Bootstrap]]></title>
-    <url>%2F2018%2F08%2F29%2FBootstrap%2F</url>
-    <content type="text"><![CDATA[Bootstrap 是全球最受欢迎的前端组件库，用于开发响应式布局、移动设备优先的 WEB 项目。 Bootstrap 是一套用于 HTML、CSS 和 JS 开发的开源工具集。利用我们提供的 Sass 变量和大量 mixin、响应式栅格系统、可扩展的预制组件、基于 jQuery 的强大的插件系统，能够快速为你的想法开发出原型或者构建整个 app 。 快速开始想要快速地将 Bootstrap 应用到你的项目中吗？推荐使用 Bootstrap中文网 维护的 BootCDN 免费加速服务。是否还需要使用包管理工具或下载源码？请进入下载页面。 CSS将引入 Bootstrap 样式表的 标签复制并粘贴到 中，并放在所有其他样式表之前。 1&lt;link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"&gt; 获取图片原生js不能很好的处理文件，所以用js并不能获取图片的文件名。虽然js不能处理文件，但是nodejs可以啊。在source\photo文件夹中新建一个tool.js文件，内容如下： 1234567891011121314151617181920212223242526"use strict";const fs = require("fs");const path = "../../photos";fs.readdir(path, function (err, files) &#123; if (err) &#123; return; &#125; let arr = []; (function iterator(index) &#123; if (index == files.length) &#123; fs.writeFile("output.json", JSON.stringify(arr, null, "\t")); return; &#125; fs.stat(path + "/" + files[index], function (err, stats) &#123; if (err) &#123; return; &#125; if (stats.isFile()) &#123; arr.push(files[index]); &#125; iterator(index + 1); &#125;) &#125;(0));&#125;);]]></content>
-      <tags>
-        <tag>Bootstrap</tag>
-        <tag>前端组件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Teacher Huang]]></title>
-    <url>%2F2018%2F08%2F29%2Fteacher-huang%2F</url>
-    <content type="text"><![CDATA[Teacher Huang is a Girl… 使用缩写可以帮助减少你 CSS 文件的大小，更加容易阅读。CSS 缩写的主要规则如下： 颜色16 进制的色彩值，如果每两位的值相同，可以缩写一半，例如： #000000 可以缩写为 #000; #336699 可以缩写为：#369; 盒尺寸通常有下面四种书写方法： property: value1; 表示所有边都是一个值 value1； property: value1 value2; 表示 top 和 bottom 的值是value1,right 和 left 的值是 value2； property: value1 value2 value3; 表示 top 的值是value1，right 和 left 的值是 value2，bottom 的值是 value3； property: value1 value2 value3 value4; 四个值依次表示top,right,bottom,left； 方便的记忆方法是顺时针，上右下左。具体应用在 margin 和 padding 的例子如下： margin: 1em 0 2em 0.5em; 边框(border)边框的属性如下： 123border-width: 1px;border-style: solid;border-color: #000; 可以缩写为一句：border: 1px solid #000; 语法是：border: width style color; 背景(Backgrounds)背景的属性如下： 12345background-color: #f00;background-image: url(background.gif);background-repeat: no-repeat;background-attachment: fixed;background-position: 0 0; 可以缩写为一句：background: #f00 url(background.gif) no-repeat fixed 0 0; 语法是：background: color image repeat attachment position; 你可以省略其中一个或多个属性值，如果省略，该属性值将用浏览器默认值，默认值为： 12345color: transparentimage: nonerepeat: repeatattachment: scrollposition: 0% 0% 字体(fonts)字体的属性如下： 123456font-style: italic;font-variant: small-caps;font-weight: bold;font-size: 1em;line-height: 140%;font-family: ”Lucida Grande”,sans-serif; 可以缩写为一句：font:italic small-caps bold 1em/140% “Lucida Grande”,sans-serif; 注意，如果你缩写字体定义，至少要定义 font-size 和 font-family 两个值。 列表(lists)取消默认的圆点和序号可以这样写 list-style: none;, list 的属性如下: 123list-style-type: square;list-style-position: inside;list-style-image: url(image.gif); 可以缩写为一句：list-style: square inside url(image.gif);]]></content>
-      <tags>
-        <tag>Teacher</tag>
-        <tag>Girl</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Designer]]></title>
-    <url>%2F2017%2F04%2F29%2FDesigner%2F</url>
-    <content type="text"><![CDATA[Designer is a general term for a person who makes designs for objects. In usage the term is requires specific context, for example a fashion designer designs clothing, a web designer designs web pages, and an automobile designer designs automobiles. In each case, the designer works with the help of a technician or engineer who understands deeper level concepts of manufacturing and engineering, and the designer themself is largely confined to work at a surface level. More formally, a designer is an agent that “specifies the structural properties of a design object”.In practice, anyone who creates tangible or intangible objects, products, processes, laws, games, graphics, services, and experiences is referred to as a designer. Classically, the main area of design was only architecture, which was understood as the major arts. The design of clothing, furniture, and other common artifacts were left mostly to tradition or artisans specializing in hand making them. Design is a part of the communication arts, design is something you plan to create, it communicates to the viewer or user a visual and emotional message to change or guide through an emotional connection with a product or service enhancing their experience of the product or brand With the increasing complexity in industrial design of today’s society, and due to the needs of mass production where more time is usually associated with more cost, the production methods became more complex and with them, the way designs and their production is created. The classical areas are now subdivided into smaller and more specialized domains of design (landscape design, urban design, exterior design, interior design, industrial design, furniture design, cloth design, and much more) according to the product designed or perhaps its means of production. Despite the variety of specializations within the design industry, it should be noted that all of them are very closely connected in terms of the need of professionals having a eye for design and being inspired by each other. When designers speak of graphic design they speak of it in terms of simplifying complexity so users do not feel overwhelmed when faced with complex systems. More information can lead to a better, simpler solution to whatever problem the designer is trying to solve. Using research methodology to solve problems is one of the most important aspects of design, it enables the designer to properly assess the clients and audience needs. Part of a designer’s job is to get to know the audience they intend on canvassing and what will be the placement of any produced material created. The education, experience, and genetic blocks that form the base of a competent designer is normally similar no matter the area of specialization, only in a later stages of training and work will designer diverge to a specialized field. The methods of teaching or the program and theories followed vary according to schools and field of study. Today, a design team, no matter the scale of the equipment, is usually composed by a master designer (the head of the team) that will have the responsibility to take decisions about the way the creative process should evolve, and a number of technical designers (the hands of the team) specialized in diverse areas according to the product proposed, depending on the type of design industrial design vs graphic design for example. For more complex products, the team will also be composed of professionals from other areas like engineers, advertising specialists, and others as required. The relationships established between team members will vary according to proposed product, the processes of production, the equipment available, or the theories followed during the idea development, but normally they are not too restrictive, giving an opportunity to everyone in the team to take a part in the creation process or at least to express an idea.]]></content>
-      <categories>
-        <category>blog</category>
-      </categories>
-      <tags>
-        <tag>Designer</tag>
       </tags>
   </entry>
   <entry>
