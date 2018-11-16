@@ -1164,6 +1164,7 @@ a.disabled {
 .video-inner a,
 .video-inner {
   color: #fff;
+  text-decoration: none;
 }
 .search-form-wrap {
   position: fixed;
@@ -1945,5 +1946,5 @@ pre .javascript .function {
   text-align: center;
 }
 .logo img {
-  width: 29px;
+  width: 48px;
 }
