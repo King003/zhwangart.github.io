@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhwangart.github.io/"/>
-  <updated>2018-11-16T10:57:19.647Z</updated>
+  <updated>2018-11-24T06:55:24.839Z</updated>
   <id>https://zhwangart.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git - 简易指南</title>
+    <link href="https://zhwangart.github.io/2018/11/24/%E7%AE%80%E6%98%93%E6%8C%87%E5%8D%97/"/>
+    <id>https://zhwangart.github.io/2018/11/24/简易指南/</id>
+    <published>2018-11-24T06:51:46.000Z</published>
+    <updated>2018-11-24T06:55:24.839Z</updated>
+    
+    <content type="html"><![CDATA[<p>助你开始使用 git 的简易指南，木有高深内容，;)。<br><a id="more"></a></p><h2 id="创建新仓库"><a href="#创建新仓库" class="headerlink" title="创建新仓库"></a>创建新仓库</h2><p>创建新文件夹，打开，然后执行<br><code>git init</code></p><h2 id="检出仓库"><a href="#检出仓库" class="headerlink" title="检出仓库"></a>检出仓库</h2><p>执行如下命令以创建一个本地仓库的克隆版本：<br><code>git clone /path/to/repository</code><br>如果是远端服务器上的仓库，你的命令会是这个样子：<br><code>git clone username@host:/path/to/repository</code></p><h2 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h2><p>你的本地仓库由 git 维护的三棵“树”组成。第一个是你的<code>工作目录</code>，它持有实际文件；第二个是<code>缓存区（Index）</code>，它像个缓存区域，临时保存你的改动；最后是<code>HEAD</code>，指向你最近一次提交后的结果。</p><h2 id="添加与提交"><a href="#添加与提交" class="headerlink" title="添加与提交"></a>添加与提交</h2><p>你可以计划改动（把它们添加到缓存区），使用如下命令：<br><code>git add &lt;filename&gt;</code><br><code>git add *</code><br>这是 git 基本工作流程的第一步；使用如下命令以实际提交改动：<br><code>git commit -m &quot;代码提交信息&quot;</code><br>现在，你的改动已经提交到了<strong>HEAD</strong>，但是还没到你的远端仓库。</p><h2 id="推送改动"><a href="#推送改动" class="headerlink" title="推送改动"></a>推送改动</h2><p>你的改动现在已经在本地仓库的<strong>HEAD</strong>中了。执行如下命令以将这些改动提交到远端仓库：<br><code>git push origin master</code><br>可以把<em>master</em>换成你想要推送的任何分支。  </p><p>如果你还没有克隆现有仓库，并欲将你的仓库连接到某个远程服务器，你可以使用如下命令添加：<br><code>git remote add origin &lt;server&gt;</code><br>如此你就能够将你的改动推送到所添加的服务器上去了。  </p><h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><p>分支是用来将特性开发绝缘开来的。在你创建仓库的时候，<em>master</em>是“默认的”。在其他分支上进行开发，完成后再将它们合并到主分支上。<br>创建一个叫做“feature_x”的分支，并切换过去：<br><code>git checkout -b feature_x</code><br>切换回主分支：<br><code>git checkout master</code><br>再把新建的分支删掉：<br><code>git branch -d feature_x</code><br>除非你将分支推送到远端仓库，不然该分支就是<em>不为他人所见的</em>：<br><code>git push origin &lt;branch&gt;</code></p><h2 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h2><p>要更新你的本地仓库至最新改动，执行：<br><code>git pull</code><br>以在你的工作目录中<em>获取（fetch）</em>并<em>合并（merge）</em>远端的改动。<br>要合并其他分支到你的当前分支（例如 master），执行：<br><code>git merge &lt;branch&gt;</code><br>两种情况下，git 都会尝试去自动合并改动。不幸的是，自动合并并非次次都能成功，并可能导致<em>冲突（conflicts）</em>。 这时候就需要你修改这些文件来人肉合并这些<em>冲突（conflicts）</em>了。改完之后，你需要执行如下命令以将它们标记为合并成功：<br><code>git add &lt;filename&gt;</code><br>在合并改动之前，也可以使用如下命令查看：<br><code>git diff &lt;source_branch&gt; &lt;target_branch&gt;</code></p><h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p>在软件发布时创建标签，是被推荐的。这是个旧有概念，在 SVN 中也有。可以执行如下命令以创建一个叫做<em>1.0.0</em>的标签：<br><code>git tag 1.0.0 1b2e1d63ff</code><br><em>1b2e1d63ff</em>是你想要标记的提交 ID 的前 10 位字符。使用如下命令获取提交 ID：<br><code>git log</code><br>你也可以用该提交 ID 的少一些的前几位，只要它是唯一的。</p><h2 id="替换本地改动"><a href="#替换本地改动" class="headerlink" title="替换本地改动"></a>替换本地改动</h2><p>假如你做错事（自然，这是不可能的），你可以使用如下命令替换掉本地改动：<br><code>git checkout -- &lt;filename&gt;</code><br>此命令会使用 HEAD 中的最新内容替换掉你的工作目录中的文件。已添加到缓存区的改动，以及新文件，都不受影响。</p><p>假如你想要丢弃你所有的本地改动与提交，可以到服务器上获取最新的版本并将你本地主分支指向到它：<br><code>git fetch origin</code><br><code>git reset --hard origin/master</code></p><h2 id="有用的贴士"><a href="#有用的贴士" class="headerlink" title="有用的贴士"></a>有用的贴士</h2><p>内建的图形化 git：<br><code>gitk</code><br>彩色的 git 输出：<br><code>git config color.ui true</code><br>显示历史记录时，只显示一行注释信息：<br><code>git config format.pretty oneline</code><br>交互地添加文件至缓存区：<br><code>git add -i</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;助你开始使用 git 的简易指南，木有高深内容，;)。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Git" scheme="https://zhwangart.github.io/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>iterm2 快捷键</title>
