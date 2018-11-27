@@ -1,58 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
+  
+  
+    <meta name="keywords" content="Web,前端,JavaScript,html5,css3,UI,设计">
+  
+  
+    <meta name="description" content="数学家的博客">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    img 下多余空隙解决方案 |
     
-    
-        <meta name="keywords" content="Web,前端,JavaScript,html5,css3,UI,设计">
-    
-    
-        <meta name="description" content="数学家的博客">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>img 下多余空隙解决方案 | 数学家</title>
-    
-        <link rel="shortcut icon" href="/favicon.ico">
-    
-    <link rel="stylesheet" href="/css/style.css">
-    
-        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-    
-    <script src="/js/pace.min.js"></script>
+    数学家</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="alternate" href="/atom.xml" title="数学家" type="application/atom+xml">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script src="/js/pace.min.js"></script>
 </head>
 
 <body>
-    <main class="content">
-        <section class="outer">
-    <article id="post-img-下多余空白解决方案" class="article article-type-post" itemscope itemprop="blogPost">
+<main class="content">
+  <section class="outer">
+  <article id="post-img-下多余空白解决方案" class="article article-type-post" itemscope
+         itemprop="blogPost">
 
-    <div class="article-inner">
-        
-            <header class="article-header">
-                
+  <div class="article-inner">
     
-        <h1 class="article-title" itemprop="name">
-            img 下多余空隙解决方案
-        </h1>
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      img 下多余空隙解决方案
+    </h1>
+  
+
+      </header>
     
 
-            </header>
-        
-
-        
-            <div class="article-meta">
-                
-<a href="/2018/09/12/img-下多余空白解决方案/" class="article-date">
-    <time datetime="2018-09-12T09:27:00.000Z" itemprop="datePublished">2018-09-12</time>
+    
+      <div class="article-meta">
+        <a href="/2018/09/12/img-下多余空白解决方案/" class="article-date">
+  <time datetime="2018-09-12T09:27:00.000Z" itemprop="datePublished">2018-09-12</time>
 </a>
-                
-            </div>
         
+      </div>
+    
 
-        <div class="article-entry" itemprop="articleBody">
-            
-            
-                <p>在进行页面的 CSS 排版时，遇到 IE6（当然有时 Firefox 下也会偶遇）浏览器中的图片元素 img 下出现多余空隙的问题绝对是常见的。对于该问题的解决方法也是「见机行事」，根据原因的不同要用不同的解决方法，这里把解决 img 下边多余空隙 Bug 的常用方法归纳，供大家参考。<br><a id="more"></a></p>
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+        <p>在进行页面的 CSS 排版时，遇到 IE6（当然有时 Firefox 下也会偶遇）浏览器中的图片元素 img 下出现多余空隙的问题绝对是常见的。对于该问题的解决方法也是「见机行事」，根据原因的不同要用不同的解决方法，这里把解决 img 下边多余空隙 Bug 的常用方法归纳，供大家参考。<br><a id="more"></a></p>
 <p>假如 Html 结构如下所示，img 的父级元素为 figure：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"figure"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"..."</span> <span class="attr">alt</span>=<span class="string">"..."</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="1、将图片转换为块级对像"><a href="#1、将图片转换为块级对像" class="headerlink" title="1、将图片转换为块级对像"></a>1、将图片转换为块级对像</h3><p>即设置 img 的 display 为：block，示例 CSS 代码：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.figure</span> <span class="selector-tag">img</span> &#123; <span class="attribute">display</span>: block;&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="2、设置图片的垂直对齐方式"><a href="#2、设置图片的垂直对齐方式" class="headerlink" title="2、设置图片的垂直对齐方式"></a>2、设置图片的垂直对齐方式</h3><p>即设置图片的 vertical-align 属性为：top、text-top、bottom、text-bottom，示例 CSS 代码：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.figure</span> <span class="selector-tag">img</span> &#123; <span class="attribute">vertical-align</span>: top;&#125;</span><br></pre></td></tr></table></figure></p>
@@ -62,126 +69,124 @@
 <p>如果要实现图文混排，这种方法是很好的选择。</p>
 <h3 id="6、取消-img-标签和其父级对象的最后一个结束标签之间的空格"><a href="#6、取消-img-标签和其父级对象的最后一个结束标签之间的空格" class="headerlink" title="6、取消 img 标签和其父级对象的最后一个结束标签之间的空格"></a>6、取消 img 标签和其父级对象的最后一个结束标签之间的空格</h3><p>这个方法要强调下，在实际开发中该方法可能会出乱子，因为在写代码的时候为了让代码更体现语义和层次清晰，难免要通过 IDE 提供代码缩进显示，这必然 会让标签和其他标签换行显示，比如说 Dreamweaver 的“套用源格式”命令。所以说这个方法可以供我们了解出现 Bug 的一种情况，具体解决方案的还得各位见招拆招了。</p>
 
-            
-        </div>
-        <footer class="article-footer">
-            <a data-url="https://zhwangart.github.io/2018/09/12/img-下多余空白解决方案/" data-id="cjowvi6sw0005cor9g217tk3e"
-               class="article-share-link">分享</a>
-            
-    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Html/">Html</a></li></ul>
-
-        </footer>
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="https://zhwangart.github.io/2018/09/12/img-下多余空白解决方案/" data-id="cjoz9pmst000cstr9miaaow92"
+         class="article-share-link">分享</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Html/">Html</a></li></ul>
 
+    </footer>
+  </div>
+
+  
     
-        
-    <nav class="article-nav">
-        
-            <a href="/2018/09/26/在Mac下配置php开发环境：Apache-php-MySql/" class="article-nav-link">
-                <strong class="article-nav-caption">上一篇</strong>
-                <div class="article-nav-title">
-                    
-                        在 Mac 下配置 php 开发环境：Apache+php+MySql
-                    
-                </div>
-            </a>
-        
-        
-            <a href="/2018/08/31/Readme/" class="article-nav-link">
-                <strong class="article-nav-caption">下一篇</strong>
-                <div class="article-nav-title">Markdown</div>
-            </a>
-        
-    </nav>
-
-
+  <nav class="article-nav">
     
+      <a href="/2018/09/26/在Mac下配置php开发环境：Apache-php-MySql/" class="article-nav-link">
+        <strong class="article-nav-caption">前一篇</strong>
+        <div class="article-nav-title">
+          
+            在 Mac 下配置 php 开发环境：Apache+php+MySql
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2018/08/31/Readme/" class="article-nav-link">
+        <strong class="article-nav-caption">后一篇</strong>
+        <div class="article-nav-title">Markdown</div>
+      </a>
+    
+  </nav>
+
+
+  
 
 </article>
 
 
 
 </section>
-        <footer class="footer">
-    
-    <div class="outer">
-        <ul class="list-inline">
-            <li>&copy; 2018 数学家</li>
-            <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
-            <li>Theme  <a href="/">zhwangart</a></li>
-        </ul>
-    </div>
+  <footer class="footer">
+  
+  <div class="outer">
+    <ul class="list-inline">
+      <li>&copy; 2018 数学家</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="/">zhwangart</a></li>
+    </ul>
+  </div>
 </footer>
-    </main>
-    <aside class="sidebar">
-        <button class="navbar-toggle"></button>
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
 
 <nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/shark.svg" alt="数学家"></a>
+    </div>
+  
+  <ul class="nav nav-main">
     
-        <div class="logo">
-            <a href="/"><img src="/images/shark.svg" alt="数学家"></a>
-        </div>
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">首页</a>
+      </li>
     
-    <ul class="nav nav-main">
-        
-            <li class="nav-item">
-                <a class="nav-item-link" href="/">首页</a>
-            </li>
-        
-            <li class="nav-item">
-                <a class="nav-item-link" href="/archives">归档</a>
-            </li>
-        
-            <li class="nav-item">
-                <a class="nav-item-link" href="/gallery">相册</a>
-            </li>
-        
-            <li class="nav-item">
-                <a class="nav-item-link" href="/about">关于</a>
-            </li>
-        
-        <li class="nav-item">
-            <a class="nav-item-link nav-item-search" title="搜索">
-                <i class="fe fe-search"></i>
-                搜索
-            </a>
-        </li>
-    </ul>
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">归档</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">相册</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">关于</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
 </nav>
 
 <nav class="navbar navbar-bottom">
-    <ul class="nav">
-        <li class="nav-item">
-            
-                <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
-                    <i class="fe fe-feed"></i>
-                </a>
-            
-        </li>
-    </ul>
+  <ul class="nav">
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
 </nav>
 
 <div class="search-form-wrap">
-    <div class="local-search local-search-plugin">
-    <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
-    <div id="local-search-result" class="local-search-result"></div>
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
 </div>
 </div>
-    </aside>
-    
+</aside>
 <script src="/js/jquery-2.0.3.min.js"></script>
 <script src="/js/lazyload.min.js"></script>
 
 
-
-    <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-    <script src="/js/search.js"></script>
+
+  <script src="/js/search.js"></script>
 
 
-<script src="/js/script.js"></script>
+<script src="/js/ocean.js"></script>
 
 </body>
 </html>

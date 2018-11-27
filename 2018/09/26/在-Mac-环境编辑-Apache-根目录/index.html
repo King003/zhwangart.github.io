@@ -1,58 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
+  
+  
+    <meta name="keywords" content="Web,前端,JavaScript,html5,css3,UI,设计">
+  
+  
+    <meta name="description" content="数学家的博客">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    在 Mac 环境编辑 Apache 根目录 |
     
-    
-        <meta name="keywords" content="Web,前端,JavaScript,html5,css3,UI,设计">
-    
-    
-        <meta name="description" content="数学家的博客">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>在 Mac 环境编辑 Apache 根目录 | 数学家</title>
-    
-        <link rel="shortcut icon" href="/favicon.ico">
-    
-    <link rel="stylesheet" href="/css/style.css">
-    
-        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-    
-    <script src="/js/pace.min.js"></script>
+    数学家</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="alternate" href="/atom.xml" title="数学家" type="application/atom+xml">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script src="/js/pace.min.js"></script>
 </head>
 
 <body>
-    <main class="content">
-        <section class="outer">
-    <article id="post-在-Mac-环境编辑-Apache-根目录" class="article article-type-post" itemscope itemprop="blogPost">
+<main class="content">
+  <section class="outer">
+  <article id="post-在-Mac-环境编辑-Apache-根目录" class="article article-type-post" itemscope
+         itemprop="blogPost">
 
-    <div class="article-inner">
-        
-            <header class="article-header">
-                
+  <div class="article-inner">
     
-        <h1 class="article-title" itemprop="name">
-            在 Mac 环境编辑 Apache 根目录
-        </h1>
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      在 Mac 环境编辑 Apache 根目录
+    </h1>
+  
+
+      </header>
     
 
-            </header>
-        
-
-        
-            <div class="article-meta">
-                
-<a href="/2018/09/26/在-Mac-环境编辑-Apache-根目录/" class="article-date">
-    <time datetime="2018-09-26T06:46:00.000Z" itemprop="datePublished">2018-09-26</time>
+    
+      <div class="article-meta">
+        <a href="/2018/09/26/在-Mac-环境编辑-Apache-根目录/" class="article-date">
+  <time datetime="2018-09-26T06:46:00.000Z" itemprop="datePublished">2018-09-26</time>
 </a>
-                
-            </div>
         
+      </div>
+    
 
-        <div class="article-entry" itemprop="articleBody">
-            
-            
-                <p>Apache 的配置文件，在目录 /etc/apache2/ 下，打开 Finder，选择“前往”–“前往文件夹”，输入 /etc/apache2/<br><a id="more"></a></p>
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+        <p>Apache 的配置文件，在目录 /etc/apache2/ 下，打开 Finder，选择“前往”–“前往文件夹”，输入 /etc/apache2/<br><a id="more"></a></p>
 <h2 id="httpd-conf"><a href="#httpd-conf" class="headerlink" title="httpd.conf"></a>httpd.conf</h2><p>1、在 /etc/apache2/ 中找到 httpd.conf 文件打开，我选择用 Sublime Text，然后找到：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Directory</span> /&gt;</span></span><br><span class="line">    AllowOverride none</span><br><span class="line">    Require all denied</span><br><span class="line"><span class="tag">&lt;/<span class="name">Directory</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>修改为：</p>
@@ -79,126 +86,124 @@
 <p>3、运行“sudo vi /etc/hosts”，打开hosts配置文件，加入”127.0.0.1 mysites”，这样就可以配置完成sites虚拟主机了，可以访问“<a href="http://mysites”了，在10.8之前Mac" target="_blank" rel="noopener">http://mysites”了，在10.8之前Mac</a> OS X版本其内容和“<a href="http://localhost/~[用户名]”完全一致。" target="_blank" rel="noopener">http://localhost/~[用户名]”完全一致。</a></p>
 <p>4、注意，记录log的“ErrorLog “/private/var/log/apache2/sites-error_log””也可以删掉，但记录日志其实是一个好习惯，在出现问题时可以帮助我们判断。如果保留这些log代码，一定log文件路径都是存在的，如果随便修改一个不存在的，会导致Apache无法服务而没有错误提示，这个比较恶心。</p>
 
-            
-        </div>
-        <footer class="article-footer">
-            <a data-url="https://zhwangart.github.io/2018/09/26/在-Mac-环境编辑-Apache-根目录/" data-id="cjowvi6t0000acor9hx1o0kiv"
-               class="article-share-link">分享</a>
-            
-    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache/">Apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac-OS/">Mac OS</a></li></ul>
-
-        </footer>
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="https://zhwangart.github.io/2018/09/26/在-Mac-环境编辑-Apache-根目录/" data-id="cjoz9pmu6000qstr9qywdbbj2"
+         class="article-share-link">分享</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache/">Apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac-OS/">Mac OS</a></li></ul>
 
+    </footer>
+  </div>
+
+  
     
-        
-    <nav class="article-nav">
-        
-            <a href="/2018/10/23/iterm2-快捷键/" class="article-nav-link">
-                <strong class="article-nav-caption">上一篇</strong>
-                <div class="article-nav-title">
-                    
-                        iterm2 快捷键
-                    
-                </div>
-            </a>
-        
-        
-            <a href="/2018/09/26/在Mac下配置php开发环境：Apache-php-MySql/" class="article-nav-link">
-                <strong class="article-nav-caption">下一篇</strong>
-                <div class="article-nav-title">在 Mac 下配置 php 开发环境：Apache+php+MySql</div>
-            </a>
-        
-    </nav>
-
-
+  <nav class="article-nav">
     
+      <a href="/2018/10/23/iterm2-快捷键/" class="article-nav-link">
+        <strong class="article-nav-caption">前一篇</strong>
+        <div class="article-nav-title">
+          
+            iterm2 快捷键
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2018/09/26/在Mac下配置php开发环境：Apache-php-MySql/" class="article-nav-link">
+        <strong class="article-nav-caption">后一篇</strong>
+        <div class="article-nav-title">在 Mac 下配置 php 开发环境：Apache+php+MySql</div>
+      </a>
+    
+  </nav>
+
+
+  
 
 </article>
 
 
 
 </section>
-        <footer class="footer">
-    
-    <div class="outer">
-        <ul class="list-inline">
-            <li>&copy; 2018 数学家</li>
-            <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
-            <li>Theme  <a href="/">zhwangart</a></li>
-        </ul>
-    </div>
+  <footer class="footer">
+  
+  <div class="outer">
+    <ul class="list-inline">
+      <li>&copy; 2018 数学家</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="/">zhwangart</a></li>
+    </ul>
+  </div>
 </footer>
-    </main>
-    <aside class="sidebar">
-        <button class="navbar-toggle"></button>
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
 
 <nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/shark.svg" alt="数学家"></a>
+    </div>
+  
+  <ul class="nav nav-main">
     
-        <div class="logo">
-            <a href="/"><img src="/images/shark.svg" alt="数学家"></a>
-        </div>
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">首页</a>
+      </li>
     
-    <ul class="nav nav-main">
-        
-            <li class="nav-item">
-                <a class="nav-item-link" href="/">首页</a>
-            </li>
-        
-            <li class="nav-item">
-                <a class="nav-item-link" href="/archives">归档</a>
-            </li>
-        
-            <li class="nav-item">
-                <a class="nav-item-link" href="/gallery">相册</a>
-            </li>
-        
-            <li class="nav-item">
-                <a class="nav-item-link" href="/about">关于</a>
-            </li>
-        
-        <li class="nav-item">
-            <a class="nav-item-link nav-item-search" title="搜索">
-                <i class="fe fe-search"></i>
-                搜索
-            </a>
-        </li>
-    </ul>
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">归档</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">相册</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">关于</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
 </nav>
 
 <nav class="navbar navbar-bottom">
-    <ul class="nav">
-        <li class="nav-item">
-            
-                <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
-                    <i class="fe fe-feed"></i>
-                </a>
-            
-        </li>
-    </ul>
+  <ul class="nav">
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
 </nav>
 
 <div class="search-form-wrap">
-    <div class="local-search local-search-plugin">
-    <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
-    <div id="local-search-result" class="local-search-result"></div>
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
 </div>
 </div>
-    </aside>
-    
+</aside>
 <script src="/js/jquery-2.0.3.min.js"></script>
 <script src="/js/lazyload.min.js"></script>
 
 
-
-    <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-    <script src="/js/search.js"></script>
+
+  <script src="/js/search.js"></script>
 
 
-<script src="/js/script.js"></script>
+<script src="/js/ocean.js"></script>
 
 </body>
 </html>
