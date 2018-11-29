@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>数学家</title>
   <icon>https://www.gravatar.com/avatar/bf575a2a5c182487a846f8a6b8c453ca</icon>
-  <subtitle>爱设计 | 爱摄影 | 爱生活</subtitle>
+  <subtitle>爱设计 | 爱前端 | 爱摄影 | 爱生活</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhwangart.github.io/"/>
