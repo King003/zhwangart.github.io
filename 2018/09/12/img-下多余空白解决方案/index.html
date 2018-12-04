@@ -18,9 +18,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
   
   <link rel="stylesheet" href="/css/style.css">
-  
-    <link rel="alternate" href="/atom.xml" title="数学家" type="application/atom+xml">
-  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
   
     <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
   
@@ -30,8 +28,7 @@
 <body>
 <main class="content">
   <section class="outer">
-  <article id="post-img-下多余空白解决方案" class="article article-type-post" itemscope
-         itemprop="blogPost">
+  <article id="post-img-下多余空白解决方案" class="article article-type-post" itemscope itemprop="blogPost">
 
   <div class="article-inner">
     
@@ -72,12 +69,13 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhwangart.github.io/2018/09/12/img-下多余空白解决方案/" data-id="cjp6cltuz00081zr9rfxkx4kb"
+      <a data-url="https://zhwangart.github.io/2018/09/12/img-下多余空白解决方案/" data-id="cjp938sqq0002sjr9y8cbwpyc"
          class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Html/">Html</a></li></ul>
 
     </footer>
+
   </div>
 
   
@@ -104,6 +102,22 @@
 
   
 
+  
+    <div id="gitalk-container"></div>
+    <script>
+      var gitalk = new Gitalk({
+        clientID: 'b056dd67631a756522c0',
+        clientSecret: '05c597da836f12ac1c7a37f1191d729ae14f5886',
+        repo: 'gitalk',
+        owner: 'zhwangart',
+        admin: ['zhwangart'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+    </script>
+  
 </article>
 
 
@@ -180,6 +194,8 @@
 </aside>
 <script src="/js/jquery-2.0.3.min.js"></script>
 <script src="/js/lazyload.min.js"></script>
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
 
   <script src="/fancybox/jquery.fancybox.min.js"></script>
