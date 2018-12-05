@@ -18,7 +18,6 @@
     <link rel="shortcut icon" href="/favicon.ico">
   
   <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
   
     <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
   
@@ -106,7 +105,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhwangart.github.io/2018/09/26/在Mac下配置php开发环境：Apache-php-MySql/" data-id="cjp9k3wrp0005sqr9m2abq78q"
+      <a data-url="https://zhwangart.github.io/2018/09/26/在Mac下配置php开发环境：Apache-php-MySql/" data-id="cjpal6nuo00048ur988kly91y"
          class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache/">apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -136,6 +135,27 @@
     
   </nav>
 
+
+  
+
+  
+    
+  <div id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'https://github.com/zhwangart/gitalk.git',
+        owner: 'zhwangart',
+        admin: ['zhwangart'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+  gitalk.render('gitalk-container')
+  </script>
 
   
 
@@ -215,8 +235,6 @@
 </aside>
 <script src="/js/jquery-2.0.3.min.js"></script>
 <script src="/js/lazyload.min.js"></script>
-
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
 
   <script src="/fancybox/jquery.fancybox.min.js"></script>
