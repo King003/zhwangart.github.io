@@ -1923,6 +1923,10 @@ pre .javascript .function {
 .pace-inactive {
   display: none;
 }
+.gitalk,
+.markdown-body {
+  font-size: 1.4rem !important;
+}
 .navbar {
   position: relative;
   padding-top: 3rem;
