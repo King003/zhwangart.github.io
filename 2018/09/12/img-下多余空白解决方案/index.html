@@ -68,7 +68,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhwangart.github.io/2018/09/12/img-下多余空白解决方案/" data-id="cjpduvugx00050mr9w5apoai8"
+      <a data-url="https://zhwangart.github.io/2018/09/12/img-下多余空白解决方案/" data-id="cjpf0s21q0008q1r9cw04v1cc"
          class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Html/">Html</a></li></ul>
@@ -106,14 +106,16 @@
   <div class="gitalk" id="gitalk-container"></div>
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
   <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
   <script type="text/javascript">
       var gitalk = new Gitalk({
         clientID: 'b056dd67631a756522c0',
         clientSecret: '05c597da836f12ac1c7a37f1191d729ae14f5886',
         repo: 'gitalk',
         owner: 'zhwangart',
-        admin: 'zhwangart',
-        id: location.pathname,      // Ensure uniqueness and length less than 50
+        admin: ['zhwangart'],
+        // id: location.pathname,      // Ensure uniqueness and length less than 50
+        id: md5(location.pathname),
         distractionFreeMode: false  // Facebook-like distraction free mode
       })
 
